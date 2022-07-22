@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 // connecting with socket io-server
 const io = require("../../server");
-const { User, Lobby } = require('../../models');
+const { User } = require('../../models');
 const bcrypt = require("bcrypt");
 
 // API routes
@@ -45,11 +45,23 @@ router.post("/", (req, res) => {
     User.create({
         username: req.body.username,
         password: req.body.password,
-        email: req.body.email
+        email: req.body.email,
+        name: req.body.name,
+        description: req.body.description,
+        breed: req.body.breed,
+        age: req.body.age,
+        gender: req.body.gender,
+        location: req.body.location,
     }).then(newUser => {
         req.session.user = {
             username: newUser.username,
             email: newUser.email,
+            name: req.newUser.name,
+            description: req.newUser.description,
+            breed: req.newUser.breed,
+            age: req.newUser.age,
+            gender: req.newUser.gender,
+            location: req.newUser.location,
             id: newUser.id
         }
         res.json({newUser});

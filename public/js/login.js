@@ -26,9 +26,15 @@ const signupForm = document.querySelector("#signup-form");
 signupForm.addEventListener("submit",(e)=>{
     e.preventDefault();
     const signupObj={
-        email:document.querySelector("#email-signup").value,
-        password:document.querySelector("#password-signup").value,
-        username:document.querySelector("#username-signup").value,
+        email: document.querySelector("#email-signup").value,
+        password: document.querySelector("#password-signup").value,
+        username: document.querySelector("#username-signup").value,
+        name: document.querySelector("#name-signup").value,
+        description: document.querySelector("#description-signup").value,
+        breed: document.querySelector("#breed-signup").value,
+        age: document.querySelector("#age-signup").value,
+        gender: document.querySelector("#gender-signup").value,
+        location: document.querySelector("#location-signup").value,
     }
     //  correct route to signup
     fetch("/api/users",{
